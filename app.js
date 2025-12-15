@@ -21,5 +21,13 @@ app.get('/api/users', (req, res) => {
         { id: 3, name: 'Charlie', role: 'Tester' }
     ]);
 });
+app.get('/api/info', (req, res) => {
+    res.json({
+        app: 'DevOps Demo',
+        environment: process.env.NODE_ENV || 'development',
+        nodeVersion: process.version,
+        platform: process.platform
+    });
+});
 
 module.exports = app;
